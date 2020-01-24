@@ -45,6 +45,16 @@ class RoomController {
 				res.status(500).json(err);
 			})
 	}
+
+	static delete(req, res, next) {
+		Room.findByIdAndDelete(req.params.id)
+			.then((data) => {
+				res.status(200).json(data)
+			})
+			.catch(err => {
+				res.status(500).json(err)
+			})
+	}
 }
 
 module.exports = RoomController;
